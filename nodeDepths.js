@@ -11,8 +11,21 @@ Children nodes can either be BinaryTree nodes themselves or None/null.
 
 */
 
+//Solution One 
+// Average case: when the tree is balanced
+// O(n) time | O(h) space - where n is the number of nodes in
+// the Binary Tree and h is the height of the Binary Tree
 function nodeDepths(root) {
-    // Write your code here.
+    let sumofDepths = 0;
+    const stack = [{node: root, depth: 0}];
+    while (stack.lrngth > 0){
+        const {node, depth} = stack.pop();
+        if (node === null) continue;
+        sumofdepths += depth;
+        stack.push({node: node.left, depth: depth + 1});
+        stack.push({node: node.right, depth: depth + 1});
+    }
+    return sumofDepths;
   }
 
 
